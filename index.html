@@ -30,6 +30,26 @@
             navigator.serviceWorker.register('service-worker.js');
         }
     </script>
+<br><br>
 
+<img id="carteImage" src="" alt="Carte" width="200" style="display:none;">
+
+<script>
+  function piocherCarte() {
+
+    const cartes = [
+      "images/01-carreau.png",
+      "images/01-coeur.png",
+      "images/01-pique.png"
+    ];
+
+    const nombre = Math.floor(Math.random() * cartes.length);
+
+    const image = document.getElementById("carteImage");
+
+    image.src = cartes[nombre];
+    image.style.display = "block";
+  }
+</script>
 </body>
 </html>
