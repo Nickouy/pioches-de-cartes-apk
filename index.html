@@ -1,55 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pioche de cartes</title>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <title>Test cartes</title>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>🎴 Pioche de cartes</h1>
+  <h1>Test pioche</h1>
 
-        <label class="checkbox">
-            <input type="checkbox" id="jokers">
-            Inclure les jokers
-        </label>
+  <button onclick="piocherCarte()">Piocher une carte</button>
 
-        <button onclick="piocher()">Piocher une carte</button>
+  <br><br>
 
-        <div id="resultat">Appuie pour piocher</div>
-    </div>
+  <img id="carteImage" width="200">
 
-    <script src="app.js"></script>
+  <script>
+    function piocherCarte() {
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js');
-        }
-    </script>
-<br><br>
+      const cartes = [
+        "images/carte1.png",
+        "images/carte2.png",
+        "images/carte3.png"
+      ];
 
-<img id="carteImage" src="" alt="Carte" width="200" style="display:none;">
+      const hasard = Math.floor(Math.random() * cartes.length);
 
-<script>
-  function piocherCarte() {
+      document.getElementById("carteImage").src = cartes[hasard];
+    }
+  </script>
 
-    const cartes = [
-      "images/01-carreau.png",
-      "images/01-coeur.png",
-      "images/01-pique.png"
-    ];
-
-    const nombre = Math.floor(Math.random() * cartes.length);
-
-    const image = document.getElementById("carteImage");
-
-    image.src = cartes[nombre];
-    image.style.display = "block";
-  }
-</script>
 </body>
 </html>
